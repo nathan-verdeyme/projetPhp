@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Effet de glissement d'image</title>
+  <style>
+    .image-container {
+      display: flex;
+    }
+    
+    .image-wrapper {
+      position: relative;
+      width: 50%;
+      overflow: hidden;
+    }
+    
+    .original-image, .replacement-image {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .replacement-image {
+      position: absolute;
+      top: 0;
+      left: 100%;
+    }
+    
+    .image-wrapper:hover .original-image {
+      transform: translateX(-100%);
+    }
+    
+    .image-wrapper:hover .replacement-image {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <div class="image-wrapper">
+      <img src="vac1.jpg" alt="Image 1" class="original-image">
+      <img src="replacement1.png" alt="Replacement 1" class="replacement-image">
+    </div>
+    <div class="image-wrapper">
+      <img src="vac2.jpg" alt="Image 2" class="original-image">
+      <img src="replacement2.png" alt="Replacement 2" class="replacement-image">
+    </div>
+  </div>
+</body>
+</html>

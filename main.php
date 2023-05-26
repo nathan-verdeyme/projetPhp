@@ -50,12 +50,11 @@ price.addEventListener('input', function() {
 </script>
  <div class="user-widget">
 
- <?php if( isset($_SESSION['username']) && $_SESSION['username'] !== null ) { 
-    //session_destroy();?>
-   <a href="menu.php">Se déconnecter</a>
- <?php }else { ?>
+ <?php if( isset($_SESSION['username']) && $_SESSION['username'] !== null ) : ?>
+   <a href="menu.html">Se déconnecter</a>
+ <?php else : ?>
 
- <?php } ?>
+ <?php endif; ?>
 </div>
  </div>
  </body>

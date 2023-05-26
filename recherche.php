@@ -51,7 +51,6 @@ $_SESSION['date_depart'] = $date_depart;
 $_SESSION['activite'] = $activite;
 $_SESSION['hotels'] = $hotels;
 $_SESSION['price']= $price;
- $_SESSION['username'] = $user;
 
 $user = $_SESSION['username'];
  // Redirection vers la page de résultat avec les données de la recherche en paramètres d'URL

@@ -11,7 +11,7 @@
 		<h1>Résultats de la recherche</h1>
 		<nav>
 			<ul>
-				<li><a href="recherche.php">Nouvelle recherche</a></li>
+				<li><a href="main.php">Nouvelle recherche</a></li>
 			</ul>
 		</nav>
 	</header>

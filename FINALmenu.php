@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -190,8 +191,57 @@
         
     </style>
 </head>
-
 <body>
+<?php 
+  include_once("connexionBdd.php");
+  if(!empty($_GET['username'])  && !empty($_GET['idUser'] )){
+      
+      ?>
+      <img src="images/SunWish.png" class="logo">
+
+    
+<div class="container">
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href="MELVINcompte.php">COMPTE</a></li>
+                <li><a href="main.php">VOYAGES</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
+        </nav>
+        <img src="images/menu.png" class="men">
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1>Bienvenue sur notre agence de voyage ! </h1> <br>
+            <p> Nous proposons de nombreuses solutions pour que vous puissiez rejoindre votre destination de rêve </p>
+            <button type="button">Explore</button>
+
+        </div>
+
+        <div class="col">
+            <div class="card card1">
+                <h5>Malaisie</h5> <br>
+                <p>Paysages de rêves et des extras sans limite</p>
+            </div>
+            <div class="card card2">
+                <h5>Afrique du Sud</h5> <br>
+                <p>Paysages de rêves et des extras sans limite</p>
+            </div>
+            <div class="card card3"> 
+                <h5>Argentine</h5> <br>
+                <p>Paysages de rêves et des extras sans limite</p>
+            </div>
+            <div class="card card4"> 
+                <h5>Bahamas</h5> <br>
+                <p>Paysages de rêves et des extras sans limite</p>
+            </div>
+
+        </div>
+</div>
+<?php 
+  }else{
+  ?>
 
     <img src="images/SunWish.png" class="logo">
 
@@ -200,15 +250,11 @@
         <div class="navbar">
             <nav>
                 <ul>
-                    <li><a href="MELVINcompte.php">COMPTE</a></li>
                     <li><a href="FINALlogin.php">LOGIN</a></li>
-                    <li><a href="">VOYAGES</a></li>
-                    <li><a href="">CONTACT</a></li>
                 </ul>
             </nav>
             <img src="images/menu.png" class="men">
         </div>
-
         <div class="row">
             <div class="col">
                 <h1>Bienvenue sur notre agence de voyage ! </h1> <br>
@@ -237,8 +283,8 @@
 
             </div>
     </div>
-
-    
+<?php }
+?>
     <footer>
         <p>© 2023 SunWish.com | Tous droits réservés.</p>
       </footer>   
@@ -247,8 +293,3 @@
 
 </html>
 
-<?php
-// Fermer la connexion
-include_once("connexionBdd.php");
-mysqli_close($conn);
-?>

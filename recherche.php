@@ -1,20 +1,16 @@
 <?php
 // inclusion du fichier de connexion
 require_once('connexionBdd.php');
-$ville = "";
-$date_arrivee = "";
-$date_depart = "";
-$activite = "";
-$price ="";
-
 // vérification si le formulaire est soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // récupération des données du formulaire
-    $ville = $_POST["ville"];
-    $date_arrivee = $_POST["date_arrivee"];
-    $date_depart = $_POST["date_depart"];
-    $activite = $_POST["activite"];
-    $price = $_POST["price"];
+
+
+    $ville = isset($_POST['ville']) ? $_POST['ville'] : null;
+    $activite = isset($_POST['activite']) ? $_POST['activite'] : null;
+    $price = isset($_POST['price']) ? $_POST['price'] : null;
+    $date_arrivee = isset($_POST['date_arrivee']) ? $_POST['date_arrivee'] : null;
+    $date_depart = isset($_POST['date_depart']) ? $_POST['date_depart'] : null;
   } else {
       header("Location: main.php"); // Redirection vers la page d'accueil si les données sont incorrectes
       exit();
@@ -27,16 +23,21 @@ $sql = "SELECT * FROM hotel
         INNER JOIN pays ON ville.id_pays = pays.id_pays
         INNER JOIN activite ON hotel.id_ville = activite.id_ville
         WHERE ville.nom_ville = ?
-        AND activite.nom_activite = ?
-        AND chambre.tarif_chambre BETWEEN 0 AND ?
-        AND NOT EXISTS (
-            SELECT * FROM reservation
-            WHERE reservation.id_chambre = chambre.id_chambre
-            AND (? BETWEEN reservation.date_arrivee AND reservation.date_depart
-            OR ? BETWEEN reservation.date_arrivee AND reservation.date_depart)
-        )";
+        AND (activite.nom_activite = ? OR ? IS NULL)
+    AND (chambre.tarif_chambre BETWEEN 0 AND ? OR ? IS NULL)
+    AND NOT EXISTS (
+        SELECT *
+        FROM reservation
+        WHERE
+            reservation.id_chambre = chambre.id_chambre
+            AND (
+                (? BETWEEN reservation.date_arrivee AND reservation.date_depart)
+                OR (? BETWEEN reservation.date_arrivee AND reservation.date_depart)
+                OR (? IS NULL AND ? IS NULL)
+            )
+    )";
         $stmt = mysqli_prepare($conn, $sql);
-           mysqli_stmt_bind_param($stmt, "sssss", $ville,$activite,$price, $date_arrivee, $date_depart);
+           mysqli_stmt_bind_param($stmt, "sssssssss", $ville,$activite, $activite,$price, $price, $date_arrivee, $date_depart, $date_arrivee, $date_depart);
            mysqli_stmt_execute($stmt);
            $result = mysqli_stmt_get_result($stmt);
 

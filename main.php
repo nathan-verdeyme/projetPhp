@@ -3,6 +3,22 @@
  <meta charset="utf-8">
  <!-- importer le fichier de style -->
  <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Autocomplétion pour le champ "Ville"
+            $("#ville").autocomplete({
+                source: "autocomplete.php?type=ville",
+                minLength: 2 // Nombre de caractères minimum pour déclencher l'autocomplétion
+            });
+
+            // Autocomplétion pour le champ "Activité"
+            $("#activite").autocomplete({
+                source: "autocomplete.php?type=activite",
+                minLength: 2
+            });
+        });
+    </script>
  </head>
  <body style='background:#fff;'>
  <div id="content">
@@ -21,15 +37,15 @@
  <h2>Recherche d'établissements hôteliers</h2>
  <form method="POST" action="recherche.php">
    <label for="ville">Ville :</label>
-   <input type="text" name="ville"><br>
+   <input type="text" name="ville" id="ville"><br>
    <label for="date_arrivee">Date d'arrivée :</label>
-   <input type="date" name="date_arrivee"><br>
+   <input type="date" name="date_arrivee" id ="date_arrivee"><br>
    <label for="date_depart">Date de départ :</label>
-   <input type="date" name="date_depart"><br>
+   <input type="date" name="date_depart" id = "date_depart"><br>
    <label for="activite">Activité recherché :</label>
-   <input type="text" name="activite"><br>
+   <input type="text" name="activite" id="activite"><br>
    <label for="price">Sélectionnez un prix maximal : </label>
-   <input type="range" name="price" id="price" min="0" max="500" step="10" value="50">
+   <input type="range" name="price" id="price" min="0" max="1000" step="10" value="50">
    <output class="price-output" for="price"></output>
    <input type="submit" value="Rechercher">
  </form>

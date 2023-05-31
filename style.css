@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
-    background: #67BE4B;
+    background-color: #4b6fbe;
+    font-family: Roboto;
    }
    #container{
     width:400px;
@@ -8,17 +15,31 @@ body{
    }
    /* Bordered form */
    form {
-    width:100%;
+    position: relative;
+    margin-top: 30px;
+    width:60%;
+    height: 300px;
     padding: 30px;
     border: 1px solid #f1f1f1;
     background: #fff;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin-left: 210px;
    }
    #container h1{
     width: 38%;
     margin: 0 auto;
     padding-bottom: 10px;
+    
    }
+
+   h2{
+    position: relative;
+    margin-top: 50px;
+    color: #2980B9;
+    margin-left: 400px;
+    font-weight: bold;
+   }
+   
    
    /* Full-width inputs */
    input[type=text], input[type=password] {
@@ -44,4 +65,9 @@ body{
     background-color: white;
     color: #53af57;
     border: 1px solid #53af57;
+   }
+
+   label{
+    font-weight: bold;
+    color: rgb(35, 80, 138);
    }

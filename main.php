@@ -3,6 +3,9 @@
 <meta charset="utf-8">
 <!-- importer le fichier de style -->
 <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
@@ -88,6 +91,7 @@
     .result-item:hover {
         background-color: #e9ecef;
     }
+    
 
 </style>
 </head>
@@ -109,25 +113,31 @@
             $iduser = $_SESSION['idUser'];
             $currentDate = date("Y-m-d");
         ?>
-        <h2>Recherche d'établissements hôteliers</h2>
-        <form method="POST" action="recherche.php">
-            <label for="ville">Ville :</label>
-            <input type="text" name="nom_ville" id="nom_ville"><br>
-            <i class="fas fa-search search-icon"></i>
-            <div id="search-results"></div>
-            <label for="date_arrivee">Date d'arrivée :</label>
-            <input type="date" name="date_arrivee" id="date_arrivee" min="<?php echo $currentDate; ?>"><br>
-            <label for="date_depart">Date de départ :</label>
-            <input type="date" name="date_depart" id="date_depart" onchange="updateMinDate()"><br>
-            <label for="activite">Activité recherchée :</label>
-            <input type="text" name="nom_activite" id="nom_activite"><br>
-            <i class="fas fa-search search-icon"></i>
-            <div id="search-resultes"></div>
-            <label for="price">Sélectionnez un prix maximal : </label>
-            <input type="range" name="price" id="price" min="0" max="1000" step="10" value="50">
-            <output class="price-output" for="price"></output>
-            <input type="submit" value="Rechercher">
-        </form>
+        <h2>RECHERCHE D'ETABLISSEMENTS HÔTELIERS</h2>
+        <form method="POST" action="recherche.php" style="text-align: center;">
+  <label for="ville">Ville :</label>
+  <input type="text" name="nom_ville" id="nom_ville" style="margin-bottom: 10px;"><br>
+  <i class="fas fa-search search-icon"></i>
+  <div id="search-results"></div>
+
+  <label for="date_arrivee">Date d'arrivée :</label>
+  <input type="date" name="date_arrivee" id="date_arrivee" min="<?php echo $currentDate; ?>" style="margin-bottom: 10px;"><br>
+
+  <label for="date_depart">Date de départ :</label>
+  <input type="date" name="date_depart" id="date_depart" onchange="updateMinDate()" style="margin-bottom: 10px;"><br>
+
+  <label for="activite">Activité recherchée :</label>
+  <input type="text" name="nom_activite" id="nom_activite" style="margin-bottom: 10px;"><br>
+  <i class="fas fa-search search-icon"></i>
+  <div id="search-results"></div>
+
+  <label for="price">Sélectionnez un prix maximal :</label>
+  <input type="range" name="price" id="price" min="0" max="1000" step="10" value="50" style="margin-bottom: 10px;">
+  <output class="price-output" for="price"></output>
+
+  <input type="submit" value="Rechercher" style="background-color: #2980B9; color: white; padding: 10px 20px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">
+</form>
+
         <?php
         }
 

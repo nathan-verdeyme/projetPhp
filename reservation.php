@@ -218,8 +218,11 @@ $_SESSION['prix_total'] = $prix_total;
 <div class="segundo">
 
 <h2>Consulter directement les informations de l'hôtel</h2>
+
 <div class="cad">
-    
+<?php foreach ($hotelTab as $hotelTa){ ?>
+<img src="<?php echo $hotelTa['image']; ?>" width="100" height="100">
+<?php } ?>
 </div>
 </div>
 

@@ -7,7 +7,9 @@ session_start();
             $date_depart = $_SESSION['date_depart'];
             $chambre_id = $_GET['id_chambre'];
             $hotel_id= $_SESSION['id_hotelChoisi'];
-$user = $_SESSION['username'];
+            $user = $_SESSION['username'];
+
+
 			
 
 
@@ -67,19 +69,160 @@ $_SESSION['prix_total'] = $prix_total;
 <html>
 <head>
     <title>Réservation effectuée</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+
+            background-color: rgb(112,128,144);
+            font-family: roboto;
+        }
+
+.uno{
+
+    position: absolute;
+    
+    height: 600px;
+    top: 0;
+    left: 0px;
+    background: linear-gradient(to bottom, #FFFFFF, #F5F5F5);
+    border-radius: 10px;
+    border: 2px solid #87CEEB;
+    height: 100%;
+
+}
+
+.uno h1{
+    
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    position: center;
+    margin-top: 0;
+    color: white;
+  font-weight: bold;
+  border: 2px solid black;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.uno h2{
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    position: center;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 415px;
+    margin-left: 12px;
+    margin-right: 12px;
+
+}
+
+.uno p{
+
+    justify-content: center;
+    text-decoration: none;
+    color: blue;
+    text-align: justify;
+    margin-left: 115px;
+}
+
+
+.center-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-weight: bold;
+    width: 79px;
+}
+
+.trio{
+    margin-top: 50px;
+    border: 2px solid black;
+    background-color: papayawhip;
+    height: 280px;
+
+}
+
+.trio p {
+    margin-top: 20px;
+    font-weight: bold;
+
+}
+
+.segundo{
+    position: absolute;
+    margin-left: 480px;
+    width: 789px;
+    height: 100%;
+    background-color: rgb(220,220,220);
+    border: 2px solid rgb(189,183,107);
+}
+
+.cad{
+    position: relative;
+    margin-left: 40px;
+    margin-top: 50px;
+    border: 1px solid black;
+    width: 700px;
+    height: 500px;
+}
+
+.segundo h2{
+
+    text-align: center;
+    justify-content: center;
+    color: white;
+    background-color: black;
+
+}
+
+
+
+    </style>
+
 </head>
 <body>
+<div class="uno">
     <h1>Réservation</h1>
-    <h2>Récapitulatif de la réservation :</h2>
+    <h2>Récapitulatif de la réservation</h2>
+
+    <div class="trio">
     <?php foreach ($hotelTab as $hotelTa){?>
-    <p><strong>Hôtel :</strong> <?php echo $hotelTa['nom_hotel']; ?></p>
+    <p class="left"><strong>* Hôtel :</strong> <?php echo $hotelTa['nom_hotel']; ?></p>
     <?php } ?>
     <?php foreach ($chambres as $chambre){?>
-    <p><strong>Chambre :</strong> <?php echo $chambre['nom_categorie']; ?></p>
+    <p class="left"><strong>* Chambre :</strong> <?php echo $chambre['nom_categorie']; ?></p>
     <?php } ?>
-    <p><strong>Date de début :</strong> <?php echo $date_arrivee; ?></p>
-    <p><strong>Date de fin :</strong> <?php echo $date_depart; ?></p>
-    <p><strong>Prix total :</strong> <?php echo $prix_total; ?> €</p>
+    <p class="left"><strong>* Date de début :</strong> <?php echo $date_arrivee; ?></p>
+    <p class="left"><strong>* Date de fin :</strong> <?php echo $date_depart; ?></p>
+    <p class="left"><strong>* Prix total :</strong> <?php echo $prix_total; ?> €</p>
+    </div>
     <form action="paiement.php" method="post">
         <input type="hidden" name="reservation_id" value="">
-        <input type="submit" value="Payer">
+        <input type="submit" value="Payer" class="center-button">
+</div>
+
+<div class="segundo">
+
+<h2>Consulter directement les informations de l'hôtel</h2>
+<div class="cad">
+    
+</div>
+</div>
+
+</body>
+
+</html>

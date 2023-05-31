@@ -20,7 +20,7 @@
 				<h1>Connexion</h1>
 				
                 <form action="verification.php" method="POST">
-										<input type="text" name="mail" placeholder="Mail de l'utilisateur" required>
+										<input type="text" name="mail" id="mail" placeholder="Mail de l'utilisateur" required>
       									<input type="password" name="password" placeholder="Mot de passe" required>							
 										<button type="submit">Se connecter</button>
 										<button type="button" onclick="window.location='inscription.html';">Pas encore inscrit ?</button>
@@ -29,7 +29,7 @@
                 if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
                 if($err==1 || $err==2)
-                echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+                echo "<p style='color:red'>Mail ou mot de passe incorrect</p>";
                 }
                 ?>
                 </form>

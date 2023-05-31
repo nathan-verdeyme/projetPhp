@@ -16,21 +16,8 @@ require_once('connexionBdd.php');
 				$user = $_SESSION['username'];
 				$prix_total = $_SESSION['prix_total'];
 				$hotel_id= $_SESSION['id_hotelChoisi']; 
+				$id = $_SESSION['idUser'];
 				
-				$userId = "SELECT id_user from user where username = ? ";
-				$stmt = mysqli_prepare($conn, $userId);
-				mysqli_stmt_bind_param($stmt, "s", $user);
-				mysqli_stmt_execute($stmt);
-				$resultat_user = mysqli_stmt_get_result($stmt);
-		
-		$resulUser =array();
-        while ($row = mysqli_fetch_assoc($resultat_user)) {
-            $resulUser[] = $row;
-            }
-			$resulUserFt = $resulUser[0];
-			$id=$resulUserFt['id_user'];
-	
-
 					
 				$reservation = "INSERT INTO reservation (date_arrivee,date_depart, user,id_chambre, prix_total, id_hotel) VALUES(?,?,?,?,?,?)";
 				$stmt1 = mysqli_prepare($conn, $reservation );
@@ -73,5 +60,7 @@ $stmt1 = mysqli_prepare($conn, $chambreR);
 		<li><strong>Tarif de la chambre :</strong> <?php echo $chambre['tarif_chambre']; ?></li>
 		<?php } ?>
 	</ul>
+	<button type="button" onclick="window.location='FINALmenu.php?username=<?php echo $user ?>&idUser=<?php echo $id ?>'">Retour à l'accueil</button>
+
 </body>
 </html>

@@ -3,7 +3,7 @@
 <html lang="fr">
 
 <head>
-
+    
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IEedge">
@@ -35,7 +35,7 @@
             padding-left: 12%;
             padding-right: 6%;
             box-sizing: border-box;
-
+            
             min-height: 100vh;
         }
 
@@ -44,7 +44,7 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-
+            
 
         }
 
@@ -56,7 +56,7 @@
             opacity: 67%;
             margin-top: 3px;
             margin-left: 3px;
-
+            
         }
 
         .men{
@@ -68,7 +68,7 @@
         nav{
             flex: 1;
             text-align: right;
-
+            
         }
 
         nav ul li{
@@ -82,18 +82,18 @@
             color: #fff;
             font-size: 13px;
             margin-left: 14px;
-
+            
         }
 
         .row{
             display: flex;
             height: 88%;
             align-items: center;
-
+            
         }
 
         .col{
-
+            
             flex-basis: 50%;
 
         }
@@ -185,14 +185,14 @@
       width: 100%
     }
 
+        
 
-
-
-
+        
+        
     </style>
 </head>
 <body>
-<?php
+<?php 
   include_once("connexionBdd.php");
   if(!empty($_GET['username'])  && !empty($_GET['idUser'] )){
       $_SESSION['username'] = $_GET['username'];
@@ -200,7 +200,7 @@
       ?>
       <img src="images/SunWish.png" class="logo">
 
-
+    
 <div class="container">
     <div class="navbar">
         <nav>
@@ -216,7 +216,7 @@
         <div class="col">
             <h1>Bienvenue sur notre agence de voyage ! </h1> <br>
             <p> Nous proposons de nombreuses solutions pour que vous puissiez rejoindre votre destination de rêve </p>
-            <button type="button">Explore</button>
+            <button type="button" href="main.php">Explore</button>
 
         </div>
 
@@ -229,24 +229,24 @@
                 <h5>Afrique du Sud</h5> <br>
                 <p>Paysages de rêves et des extras sans limite</p>
             </div>
-            <div class="card card3">
+            <div class="card card3"> 
                 <h5>Argentine</h5> <br>
                 <p>Paysages de rêves et des extras sans limite</p>
             </div>
-            <div class="card card4">
+            <div class="card card4"> 
                 <h5>Bahamas</h5> <br>
                 <p>Paysages de rêves et des extras sans limite</p>
             </div>
 
         </div>
 </div>
-<?php
+<?php 
   }else{
   ?>
 
     <img src="images/SunWish.png" class="logo">
 
-
+    
     <div class="container">
         <div class="navbar">
             <nav>
@@ -273,11 +273,11 @@
                     <h5>Afrique du Sud</h5> <br>
                     <p>Paysages de rêves et des extras sans limite</p>
                 </div>
-                <div class="card card3">
+                <div class="card card3"> 
                     <h5>Argentine</h5> <br>
                     <p>Paysages de rêves et des extras sans limite</p>
                 </div>
-                <div class="card card4">
+                <div class="card card4"> 
                     <h5>Bahamas</h5> <br>
                     <p>Paysages de rêves et des extras sans limite</p>
                 </div>
@@ -288,8 +288,9 @@
 ?>
     <footer>
         <p>© 2023 SunWish.com | Tous droits réservés.</p>
-      </footer>
-
+      </footer>   
+    
 </body>
 
 </html>
+

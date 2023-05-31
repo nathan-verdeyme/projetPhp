@@ -8,11 +8,11 @@
 
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 		*{
 			margin: 0;
 			padding: 0;
 		}
+		
 
 		h1{
 			color: white;
@@ -143,7 +143,7 @@ $idUser = $_SESSION['idUser'];
 	<p> Entreprise : <?php echo $infoUser["entreprise"]; ?> </p>
 
     <p> Nom : <?php echo $infoUser['nom']; ?></p>
-    <p> Prénom : <?php echo $user; ?></p>
+    <p> Prénom : <?php echo $infoUser['username']; ?></p>
 
     <p>Mail : <?php echo $infoUser['mail']; ?></p>
 	</div>
@@ -179,7 +179,7 @@ $idUser = $_SESSION['idUser'];
 		<input type="submit" value="Payer">
 	</form>
 
-	<img src="feu.jpg" class="feu">
+	<img src="images/feu.jpg" class="feu">
 </body>
 </html>
 

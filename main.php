@@ -96,40 +96,18 @@
     <!-- tester si l'utilisateur est connecté -->
     <?php
     session_start();
-
-    if($_SESSION['username'] != ""){
-        $user = $_SESSION['username'];
-        // afficher un message
-        echo "Bonjour $user, vous êtes connecté";
-    ?>
-    <h2>Recherche d'établissements hôteliers</h2>
-    <form method="POST" action="recherche.php">
-        <label for="ville">Ville :</label>
-        <input type="text" name="nom_ville" id="nom_ville"><br>
-        <i class="fas fa-search search-icon"></i>
-        <div id="search-results"></div>
-        <label for="date_arrivee">Date d'arrivée :</label>
-        <input type="date" name="date_arrivee" id="date_arrivee"><br>
-        <label for="date_depart">Date de départ :</label>
-        <input type="date" name="date_depart" id="date_depart"><br>
-        <label for="activite">Activité recherchée :</label>
-        <input type="text" name="nom_activite" id="nom_activite"><br>
-        <i class="fas fa-search search-icon"></i>
-        <div id="search-resultes"></div>
-        <label for="price">Sélectionnez un prix maximal : </label>
-        <input type="range" name="price" id="price" min="0" max="1000" step="10" value="50">
-        <output class="price-output" for="price"></output>
-        <input type="submit" value="Rechercher">
-    </form>
-    <?php
-    }
     ?>
 
     <div class="user-widget">
         <?php
-        if (isset($_SESSION['username']) && $_SESSION['username'] !== null) {
-            exit(header("Location: FINALmenu.php"));
+        if (!isset($_SESSION['username']) && !isset($_SESSION['idUser']) ) {
+         ?>
+            <button type="button" onclick="window.location='FINALmenu.php'">Retour à l'accueil</button>
+           <?php 
         } else {
+            $user = $_SESSION['username'];
+            $iduser = $_SESSION['idUser'];
+            $currentDate = date("Y-m-d");
         ?>
         <h2>Recherche d'établissements hôteliers</h2>
         <form method="POST" action="recherche.php">
@@ -138,9 +116,9 @@
             <i class="fas fa-search search-icon"></i>
             <div id="search-results"></div>
             <label for="date_arrivee">Date d'arrivée :</label>
-            <input type="date" name="date_arrivee" id="date_arrivee"><br>
+            <input type="date" name="date_arrivee" id="date_arrivee" min="<?php echo $currentDate; ?>"><br>
             <label for="date_depart">Date de départ :</label>
-            <input type="date" name="date_depart" id="date_depart"><br>
+            <input type="date" name="date_depart" id="date_depart" onchange="updateMinDate()"><br>
             <label for="activite">Activité recherchée :</label>
             <input type="text" name="nom_activite" id="nom_activite"><br>
             <i class="fas fa-search search-icon"></i>
@@ -158,6 +136,10 @@
     </div>
 </div>
 <script>
+     function updateMinDate() {
+        var date_depart = document.getElementById("date_arrivee").value;
+        document.getElementById("date_depart").min = date_depart;
+    }
         const price = document.querySelector('#price');
         const output = document.querySelector('.price-output');
 

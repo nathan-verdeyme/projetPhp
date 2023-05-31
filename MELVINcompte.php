@@ -134,7 +134,6 @@
     }
   ?> </ul> <?php
   }else {
-      echo $user;
     ?>
 
     <p> Rien à afficher</p>

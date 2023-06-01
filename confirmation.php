@@ -151,8 +151,8 @@ $stmt1 = mysqli_prepare($conn, $chambreR);
 		<?php 
 		foreach ($chambres as $chambre) { ?>
 		<li><strong>Nom de la chambre :</strong> <?php echo $chambre['nom_categorie']; ?></li>
-		<li><strong>Tarif de la chambre :</strong> <?php echo $chambre['tarif_chambre']; ?></li>
 		<?php } ?>
+		<li><strong>Tarif total de votre séjour :</strong> <?php echo $prix_total; ?></li>
 	</ul>
 
 		</div>

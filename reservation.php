@@ -83,7 +83,7 @@ $_SESSION['prix_total'] = $prix_total;
 
         body{
 
-            background-color: rgb(112,128,144);
+            background-color: black;
             font-family: roboto;
         }
 
@@ -94,7 +94,7 @@ $_SESSION['prix_total'] = $prix_total;
     height: 600px;
     top: 0;
     left: 0px;
-    background: linear-gradient(to bottom, #FFFFFF, #F5F5F5);
+    background: linear-gradient(to bottom, #cde6f9, #85c4f7);
     border-radius: 10px;
     border: 2px solid #87CEEB;
     height: 100%;
@@ -179,6 +179,7 @@ $_SESSION['prix_total'] = $prix_total;
     width: 700px;
     height: 500px;
 }
+
 
 .segundo h2{
 

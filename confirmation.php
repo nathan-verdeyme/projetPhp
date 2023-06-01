@@ -3,8 +3,101 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Confirmation de la réservation</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+		*{
+            margin: 0px;
+            padding: 0px;
+            font-family: Roboto;
+        }
+
+		.exa{
+			position: relative;
+			margin-top: 100px;
+			left:34%;
+		}
+
+		button{
+			position: relative;
+			margin-top: 100px;
+			left:35%;
+			width: 180px;
+            color: #000;
+            font-size: 12px;
+            padding: 12px 0;
+            background: #fff;
+            border: 3px solid black;
+            border-radius: 20px;
+            outline: none;
+            font-family: poppins;
+            font-weight: bold;
+			
+		}
+
+		h1{
+			position: relative;
+			top:30px;
+			left:24%;
+			font-weight: bold;
+			color: white;
+		}
+
+		body{
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(voy.jpg);
+            background-position: center;
+            background-size: cover;
+            padding-left: 12%;
+            padding-right: 6%;
+            box-sizing: border-box;
+            
+            min-height: 100vh;
+        }	
+		
+
+		p{
+			color: white;
+			font-weight: bold;
+			margin-top: 30px;
+
+		}
+
+		ul{
+			position: relative;
+			margin-top: 100px;
+			color: white;
+			font-weight: bold;
+			margin-top: 30px;
+
+		}
+
+		li{
+			color: white;
+			font-weight: bold;
+			margin-top: 30px;
+
+		}
+
+		a{
+			color: white;
+			font-weight: bold;
+			margin-top: 30px;
+
+		}
+
+
+		
+	</style>
 </head>
 <body>
+	<div class="container">
 	<h1>Confirmation de la réservation</h1>
 <?php	session_start();
 
@@ -45,7 +138,8 @@ $stmt1 = mysqli_prepare($conn, $chambreR);
 		$chambres[] = $row;
 		}
 		?>
-	<p>Merci pour votre réservation ! Veuillez vérifier les informations suivantes :</p>
+	
+	<div class="exa">
 
 	<ul>
 		<?php foreach ($hotelTab as $hotel){ ?>
@@ -60,7 +154,10 @@ $stmt1 = mysqli_prepare($conn, $chambreR);
 		<li><strong>Tarif de la chambre :</strong> <?php echo $chambre['tarif_chambre']; ?></li>
 		<?php } ?>
 	</ul>
+
+		</div>
 	<button type="button" onclick="window.location='FINALmenu.php?username=<?php echo $user ?>&idUser=<?php echo $id ?>'">Retour à l'accueil</button>
+		</div>
 
 </body>
 </html>

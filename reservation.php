@@ -221,7 +221,7 @@ $_SESSION['prix_total'] = $prix_total;
 
 <div class="cad">
 <?php foreach ($hotelTab as $hotelTa){ ?>
-<img src="<?php echo $hotelTa['image']; ?>" width="100" height="100">
+<img src="<?php echo $hotelTa['image']; ?>" width="700" height="500">
 <?php } ?>
 </div>
 </div>

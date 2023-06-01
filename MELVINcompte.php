@@ -71,7 +71,6 @@
   </header>
 
   <main>
-    <h2>Personnel :</h2>
     <div class="container">
     <?php
 
@@ -141,8 +140,6 @@
   }
     ?>
     </div>
-
-    <h2>Entreprise : </h2>
     <div class="container">
     <?php foreach ($infosUser as $infoUser) { ?>
 
@@ -151,8 +148,6 @@
     <li><strong>Entreprise :</strong> <?php echo $infoUser['entreprise']; ?></li>
     <?php } ?>
     </div>
-
-    <h2> Préférences :</h2>
     <div class="container">
     <?php foreach ($infosUser as $infoUser) { ?>
 
